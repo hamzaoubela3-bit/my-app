@@ -275,7 +275,20 @@
                         </div>
 
                         <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg">
-                            <i class="fas fa-paper-plane ml-2"></i> إرسال السؤال
+                            <i class="fas fa-paper-plane ml-2"></i> emailjs.send("service_h1fwgrd",hkfewxl , {
+  name: "طالب",
+  email: document.getElementById("email")?.value || "no-email",
+  subject: document.getElementById("subject").value,
+  grade: document.getElementById("grade").value,
+  message: document.getElementById("question").value
+})
+.then(function() {
+  alert("✅ تم إرسال سؤالك بنجاح");
+}, function(error) {
+  alert("❌ وقع خطأ: " + error.text);
+});
+
+                            
                         </button>
 
                         <p class="text-center text-gray-600 text-sm">
@@ -784,3 +797,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </body>
 
 </html>
+
