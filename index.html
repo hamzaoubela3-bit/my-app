@@ -750,14 +750,23 @@
         });
 
         // Search functionality
-        document.querySelector('header button').addEventListener('click', function() {
+    // Search functionality (SAFE)
+document.addEventListener('DOMContentLoaded', function () {
+    const searchBtn = document.querySelector('header button');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function () {
             const searchInput = this.previousElementSibling;
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
                 alert(`جاري البحث عن: "${searchTerm}"`);
-                // In a real application, you would perform the search here
                 searchInput.value = '';
+            }
+        });
+    }
+});
+
+        
             }
         });
 
@@ -773,4 +782,5 @@
         }
     </script>
 </body>
+
 </html>
